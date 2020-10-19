@@ -17,7 +17,7 @@ package uniandes.isis2304.parranderos.negocio;
 
 import java.sql.Timestamp;
 
-import oracle.sql.TIMESTAMP;
+
 
 public class ESPACIO implements VOESPACIO
 {

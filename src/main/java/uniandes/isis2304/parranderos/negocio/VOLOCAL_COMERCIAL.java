@@ -27,19 +27,28 @@ public interface VOLOCAL_COMERCIAL
 	 * 			Métodos
 	 *****************************************************************/
 	/**
-	 * @return El idBebedor
+	 * @return the iDESPACIO
 	 */
-	public long getIdBebedor();
-
+	public long getIDESPACIO();
 	/**
-	 * @return El idBebida
+	 * @return the iD_LOCAL
 	 */
-	public long getIdBebida();
-	
-	/** 
-	 * @return Una cadena con la información básica
+	public long getID_LOCAL();
+	/**
+	 * @return the nOMBRE
 	 */
-	@Override
-	public String toString();
+	public String getNOMBRE();
+	/**
+	 * @return the nOMBRE_EMPRESA
+	 */
+	public String getNOMBRE_EMPRESA();
+	/**
+	 * @return the aREA
+	 */
+	public float getAREA();
+	/**
+	 * @return the tIPO_ESTABLECIMIENTO
+	 */
+	public String getTIPO_ESTABLECIMIENTO();
 	
 }

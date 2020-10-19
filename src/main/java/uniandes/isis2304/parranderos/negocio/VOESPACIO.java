@@ -15,60 +15,37 @@
 
 package uniandes.isis2304.parranderos.negocio;
 
-import java.util.List;
+import java.sql.Timestamp;
 
-/**
- * Interfaz para los métodos get de BEBEDOR.
- * Sirve para proteger la información del negocio de posibles manipulaciones desde la interfaz 
- * 
- * @author Germán Bravo
- */
+
 public interface VOESPACIO 
 {
 	/* ****************************************************************
 	 * 			Métodos
 	 *****************************************************************/
 	/**
-	 * @return El id del bebedor
+	 * @return the iD_ESPACIO
 	 */
-	public long getId();
-
+	public long getID_ESPACIO();
 	/**
-	 * @return El nombre del bebedor
+	 * @return the hORARIO_APERTURA_EMPLEADOS
 	 */
-	public String getNombre();
-
+	public Timestamp getHORARIO_APERTURA_EMPLEADOS();
 	/**
-	 * @return La ciudad del bebedor
+	 * @return the hORARIO_APERTURA_CLIENTES
 	 */
-	public String getCiudad();
-
+	public Timestamp getHORARIO_APERTURA_CLIENTES();
 	/**
-	 * @return El presupuesto del bebedor
+	 * @return the hORARIO_CIERRE_CLIENTES
 	 */
-	public String getPresupuesto();
-
+	public Timestamp getHORARIO_CIERRE_CLIENTES();
 	/**
-	 * @return La lista de visitasRealizadas por el bebedor 
+	 * @return the aFORO_ACTUAL
 	 */
-	public List<Object []> getVisitasRealizadas();
-
+	public int getAFORO_ACTUAL();
 	/**
-	 * @return Las bebidasQueLeGustan al bebedor
+	 * @return the aFORO_TOTAL
 	 */
-	public List<Object[]> getBebidasQueLeGustan();
-
-	/**
-	 * @return Una cadena de caracteres con la información básica del bebedor
-	 */
-	@Override
-	public String toString();
-
-	/**
-	 * @return Una cadena de caracteres con la información COMPLEtA del bebedor.
-	 * Además de la información básica, contiene las visitas realizadas (una por línea) y 
-	 * las bebidas que le gustan al bebedor (una por línea)
-	 */
-	public String toStringCompleto ();
+	public int getAFORO_TOTAL();
 
 }

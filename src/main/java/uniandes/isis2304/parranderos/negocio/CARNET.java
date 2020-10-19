@@ -15,9 +15,6 @@
 
 package uniandes.isis2304.parranderos.negocio;
 
-import java.sql.Timestamp;
-import java.util.LinkedList;
-import java.util.List;
 
 public class CARNET implements VOCARNET
 {
@@ -42,11 +39,6 @@ public class CARNET implements VOCARNET
 		this.setCEDULA(0);
 	}
 
-	/**
-	 * Constructor con valores
-	 * @param idCarnet - El id del carnet
-	 * @param cedula - La cedula asociada al carnet
-	 */
 	public CARNET(long idCarnet, float cedula) 
 	{
 		this.setID_CARNET(idCarnet);

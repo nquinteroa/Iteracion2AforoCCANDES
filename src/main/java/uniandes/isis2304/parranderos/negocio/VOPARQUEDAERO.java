@@ -15,38 +15,21 @@
 
 package uniandes.isis2304.parranderos.negocio;
 
-/**
- * Interfaz para los métodos get de TIPOBEBIDA.
- * Sirve para proteger la información del negocio de posibles manipulaciones desde la interfaz 
- * 
- * @author Germán Bravo
- */
 public interface VOPARQUEDAERO 
 {
 	/* ****************************************************************
 	 * 			Métodos
 	 *****************************************************************/
 	/**
-	 * @return El id del tipo de bebida
+	 * @return the iDESPACIO
 	 */
-	public long getId();
-
+	public long getIDESPACIO();
 	/**
-	 * @return El nombre del tipo de bebida
+	 * @return the iD_PARQUEADERO
 	 */
-	public String getNombre();
-
+	public long getID_PARQUEADERO();
 	/**
-	 * @return Una cadena de caracteres con la información del tipo de bebida
+	 * @return the cAPACIDAD
 	 */
-	@Override
-	public String toString(); 
-
-	/**
-	 * Define la igualdad dos Tipos de bebida
-	 * @param tb - El tipo de bebida a comparar
-	 * @return true si tienen el mismo identificador y el mismo nombre
-	 */
-	@Override
-	public boolean equals (Object tb); 
+	public float getCAPACIDAD();
 }

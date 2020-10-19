@@ -26,35 +26,12 @@ public interface VOCENTRO_COMERCIAL
 	/* ****************************************************************
 	 * 			Métodos 
 	 *****************************************************************/
-     /**
-	 * @return El id del bar
-	 */
-	public long getId();
-	
 	/**
-	 * @return el nombre del bar
+	 * @return the nOMBRE
 	 */
-	public String getNombre();
-	
+	public String getNOMBRE();
 	/**
-	 * @return la ciudad del bar
+	 * @return the aFORO
 	 */
-	public String getCiudad();
-	
-	/**
-	 * @return El presupuesto del bar
-	 */
-	public String getPresupuesto();
-	
-	/**
-	 * @return la cantSedes del bar
-	 */
-	public int getCantSedes();
-
-	@Override
-	/**
-	 * @return Una cadena de caracteres con todos los atributos del bar
-	 */
-	public String toString();
-
+	public int getAFORO();
 }

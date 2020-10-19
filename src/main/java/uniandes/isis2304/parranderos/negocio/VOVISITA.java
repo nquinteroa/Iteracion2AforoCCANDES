@@ -29,29 +29,27 @@ public interface VOVISITA
 	 * 			Métodos
 	 *****************************************************************/
 	/**
-	 * @return El idBebedor
+	 * @return the fECHAYHORA_OP
 	 */
-	public long getIdBebedor();
-
+	public Timestamp getFECHAYHORA_OP();
 	/**
-	 * @return El idBar
+	 * @return the tIPO_OP
 	 */
-	public long getIdBar();
-
+	public String getTIPO_OP();
 	/**
-	 * @return La fechaVisita
+	 * @return the hORAFIN_OP
 	 */
-	public Timestamp getFechaVisita();
-
+	public Timestamp getHORAFIN_OP();
 	/**
-	 * @return El horario
+	 * @return the iDLECTOR
 	 */
-	public String getHorario();
-
-	/** 
-	 * @return Una cadena con la información básica
+	public long getIDLECTOR();
+	/**
+	 * @return the iDCARNET
 	 */
-	@Override
-	public String toString();
-
+	public long getIDCARNET();
+	/**
+	 * @return the iDESPACIO
+	 */
+	public long getIDESPACIO();
 }

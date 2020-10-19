@@ -1,6 +1,5 @@
 package uniandes.isis2304.parranderos.negocio;
 
-import java.sql.Timestamp;
 
 public class LECTOR implements VOLECTOR{
 	/**
@@ -11,12 +10,6 @@ public class LECTOR implements VOLECTOR{
 	 * El identificador del espacio
 	 */
 	private long IDESPACIO;
-	/**
-	 * @return the iD_LECTOR
-	 */
-	public long getID_LECTOR() {
-		return ID_LECTOR;
-	}
 	public LECTOR() 
 	{
 		this.ID_LECTOR= 0;
@@ -27,6 +20,12 @@ public class LECTOR implements VOLECTOR{
 	{		
 		this.ID_LECTOR= idLector;
 		this.IDESPACIO = idEspacio;
+	}
+	/**
+	 * @return the iD_LECTOR
+	 */
+	public long getID_LECTOR() {
+		return ID_LECTOR;
 	}
 	/**
 	 * @param iD_LECTOR the iD_LECTOR to set

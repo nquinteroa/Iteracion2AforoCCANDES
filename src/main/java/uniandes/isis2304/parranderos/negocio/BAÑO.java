@@ -49,14 +49,6 @@ public class BAÑO implements VOBAÑO
 		this.NUMERO_SANITARIOS = 0;
 	}
 
-	/**
-	 * Constructor con valores
-	 * @param id - El id del bart
-	 * @param nombre - El nombre del bar
-	 * @param ciudad - La ciudad del bar
-	 * @param presupuesto - El presupuesto del bar (ALTO, MEDIO, BAJO)
-	 * @param cantSedes - Las sedes del bar (Mayor que 0)
-	 */
     public BAÑO(long idEspacio, long idBaño, int numeroSanitarios) 
     {
     	this.ID_BAÑO = idBaño;
