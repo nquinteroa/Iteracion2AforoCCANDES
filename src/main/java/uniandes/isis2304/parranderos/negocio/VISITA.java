@@ -27,7 +27,7 @@ public class VISITA implements VOVISITA
 	/**
 	 * La fecha y hora de la visita
 	 */
-	private TIMESTAMP FECHAYHORA_OP;
+	private Timestamp FECHAYHORA_OP;
 	
 	/**
 	 * El tipo de operacion de la visita
@@ -60,98 +60,108 @@ public class VISITA implements VOVISITA
 	 */
 	public VISITA() 
 	{
-		this.idBebedor = 0;
-		this.idBar = 0;
-		this.horario = "";
-		this.fechaVisita = new Timestamp (0);
+		this.FECHAYHORA_OP= new Timestamp(0);
+		this.TIPO_OP = "";
+		this.HORAFIN_OP =new Timestamp(0);
+		this.IDLECTOR = 0;
+		this.IDCARNET= 0;
+		this.IDESPACIO = 0;
+	}
+
+	public VISITA(Timestamp fechaYHoraOp, String tipoOp, Timestamp horarioFinOp, long idLector,
+			long idCarnet, long idEspacio) 
+	{
+		this.FECHAYHORA_OP= fechaYHoraOp;
+		this.TIPO_OP = tipoOp;
+		this.HORAFIN_OP =horarioFinOp;
+		this.IDLECTOR = idLector;
+		this.IDCARNET= idCarnet;
+		this.IDESPACIO = idEspacio;
 	}
 
 	/**
-	 * Constructor con valores
-	 * @param idBebedor - El identificador del b ebedor. Debe existir un bebedor con dicho identificador
-	 * @param idBar - El identificador del bar. Debe exixtir un bar con dicho identificador
-	 * @param fechaVisita - La fecha en la cual se realiza la visita
-	 * @param horario - El horario en el que el bebedor vista el bar (DIURNO, NOCTURNO, TODOS)
+	 * @return the fECHAYHORA_OP
 	 */
-	public VISITA(long idBebedor, long idBar, Timestamp fechaVisita, String horario) 
-	{
-		this.idBebedor = idBebedor;
-		this.idBar = idBar;
-		this.fechaVisita = fechaVisita;
-		this.horario = horario;
+	public Timestamp getFECHAYHORA_OP() {
+		return FECHAYHORA_OP;
 	}
 
 	/**
-	 * @return El idBebedor
+	 * @param fECHAYHORA_OP the fECHAYHORA_OP to set
 	 */
-	public long getIdBebedor() 
-	{
-		return idBebedor;
+	public void setFECHAYHORA_OP(Timestamp fECHAYHORA_OP) {
+		FECHAYHORA_OP = fECHAYHORA_OP;
 	}
 
 	/**
-	 * @param idBebedor - El nuevo idBebedor. Debe existir un bebedor con dicho identificador
+	 * @return the tIPO_OP
 	 */
-	public void setIdBebedor(long idBebedor) 
-	{
-		this.idBebedor = idBebedor;
+	public String getTIPO_OP() {
+		return TIPO_OP;
 	}
 
 	/**
-	 * @return El idBar
+	 * @param tIPO_OP the tIPO_OP to set
 	 */
-	public long getIdBar() 
-	{
-		return idBar;
+	public void setTIPO_OP(String tIPO_OP) {
+		TIPO_OP = tIPO_OP;
 	}
 
 	/**
-	 * @param idBar - El nuevo idBar. Debe exixtir un bar con dicho identificador
+	 * @return the hORAFIN_OP
 	 */
-	public void setIdBar(long idBar) 
-	{
-		this.idBar = idBar;
+	public Timestamp getHORAFIN_OP() {
+		return HORAFIN_OP;
 	}
 
 	/**
-	 * @return La fechaVisita
+	 * @param hORAFIN_OP the hORAFIN_OP to set
 	 */
-	public Timestamp getFechaVisita() 
-	{
-		return fechaVisita;
+	public void setHORAFIN_OP(Timestamp hORAFIN_OP) {
+		HORAFIN_OP = hORAFIN_OP;
 	}
 
 	/**
-	 * @param fechaVisita - La nueva fecha de visita al bar por el bebedor
+	 * @return the iDLECTOR
 	 */
-	public void setFechaVisita(Timestamp fechaVisita) 
-	{
-		this.fechaVisita = fechaVisita;
+	public long getIDLECTOR() {
+		return IDLECTOR;
 	}
 
 	/**
-	 * @return El horario
+	 * @param iDLECTOR the iDLECTOR to set
 	 */
-	public String getHorario() 
-	{
-		return horario;
+	public void setIDLECTOR(long iDLECTOR) {
+		IDLECTOR = iDLECTOR;
 	}
 
 	/**
-	 * @param horario - El nuevo horario en que se realizó la visita (DIURNO, NOCTURNO, TODOS)
+	 * @return the iDCARNET
 	 */
-	public void setHorario(String horario) 
-	{
-		this.horario = horario;
+	public long getIDCARNET() {
+		return IDCARNET;
 	}
 
-	/** 
-	 * @return Una cadena con la información básica
+	/**
+	 * @param iDCARNET the iDCARNET to set
 	 */
-	@Override
-	public String toString() 
-	{
-		return "Visitan [idBebedor=" + idBebedor + ", idBar=" + idBar + ", fechaVisita=" + fechaVisita + ", horario="
-				+ horario + "]";
+	public void setIDCARNET(long iDCARNET) {
+		IDCARNET = iDCARNET;
 	}
+
+	/**
+	 * @return the iDESPACIO
+	 */
+	public long getIDESPACIO() {
+		return IDESPACIO;
+	}
+
+	/**
+	 * @param iDESPACIO the iDESPACIO to set
+	 */
+	public void setIDESPACIO(long iDESPACIO) {
+		IDESPACIO = iDESPACIO;
+	}
+
+	
 }
