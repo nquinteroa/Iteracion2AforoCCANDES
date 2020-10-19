@@ -21,7 +21,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import com.google.gson.JsonObject;
-import uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos;
+import uniandes.isis2304.parranderos.persistencia.PersistenciaAforo;
 
 /**
  * Clase principal del negocio
@@ -45,7 +45,7 @@ public class AFOROCCANDES
 	/**
 	 * El manejador de persistencia
 	 */
-	private PersistenciaParranderos pp;
+	private PersistenciaAforo pp;
 	
 	/* ****************************************************************
 	 * 			Métodos
@@ -55,7 +55,7 @@ public class AFOROCCANDES
 	 */
 	public AFOROCCANDES ()
 	{
-		pp = PersistenciaParranderos.getInstance ();
+		pp = PersistenciaAforo.getInstance ();
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class AFOROCCANDES
 	 */
 	public AFOROCCANDES (JsonObject tableConfig)
 	{
-		pp = PersistenciaParranderos.getInstance (tableConfig);
+		pp = PersistenciaAforo.getInstance (tableConfig);
 	}
 	
 	/**

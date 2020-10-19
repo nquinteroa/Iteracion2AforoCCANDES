@@ -40,16 +40,16 @@ import uniandes.isis2304.parranderos.negocio.PARQUEADERO;
 import uniandes.isis2304.parranderos.negocio.VISITA;
 
 /**
- * Clase para el manejador de persistencia del proyecto Parranderos
+ * Clase para el manejador de persistencia del proyecto AforoCCAndes
  * Traduce la información entre objetos Java y tuplas de la base de datos, en ambos sentidos
  * Sigue un patrón SINGLETON (Sólo puede haber UN objeto de esta clase) para comunicarse de manera correcta
  * con la base de datos
- * Se apoya en las clases SQLBar, SQLBebedor, SQLBebida, SQLGustan, SQLSirven, SQLTipoBebida y SQLVisitan, que son 
- * las que realizan el acceso a la base de datos
+ * Se apoya en las clases SQLBAÑO, SQLCARNET, SQLCENTRO_COMERCIAL, SQLESPACIO, SQLLECTOR, SQLLOCAL_COMERCIAL, SQLPARQUEADERO,
+ * SQLVISITA, SQLVISITANTE que son las que realizan el acceso a la base de datos
  * 
- * @author Germán Bravo
+ * 
  */
-public class PersistenciaParranderos 
+public class PersistenciaAforo 
 {
 	/* ****************************************************************
 	 * 			Constantes
@@ -57,7 +57,7 @@ public class PersistenciaParranderos
 	/**
 	 * Logger para escribir la traza de la ejecución
 	 */
-	private static Logger log = Logger.getLogger(PersistenciaParranderos.class.getName());
+	private static Logger log = Logger.getLogger(PersistenciaAforo.class.getName());
 	
 	/**
 	 * Cadena para indicar el tipo de sentencias que se va a utilizar en una consulta
@@ -70,7 +70,7 @@ public class PersistenciaParranderos
 	/**
 	 * Atributo privado que es el único objeto de la clase - Patrón SINGLETON
 	 */
-	private static PersistenciaParranderos instance;
+	private static PersistenciaAforo instance;
 	
 	/**
 	 * Fábrica de Manejadores de persistencia, para el manejo correcto de las transacciones
@@ -79,7 +79,8 @@ public class PersistenciaParranderos
 	
 	/**
 	 * Arreglo de cadenas con los nombres de las tablas de la base de datos, en su orden:
-	 * Secuenciador, tipoBebida, bebida, bar, bebedor, gustan, sirven y visitan
+	 * Secuenciador, baño, carnet, centro_comercial, espacio, lector, local_comercial,
+	 * parqueadero, visita y visitante.
 	 */
 	private List <String> tablas;
 	
@@ -87,41 +88,45 @@ public class PersistenciaParranderos
 	 * Atributo para el acceso a las sentencias SQL propias a PersistenciaParranderos
 	 */
 	private SQLUtil sqlUtil;
+	/**
+	 * Atributo para el acceso a la tabla PARQUEADERO de la base de datos
+	 */
+	private SQLPARQUEADERO sqlParqueadero;
 	
 	/**
 	 * Atributo para el acceso a la tabla TIPOBEBIDA de la base de datos
 	 */
-	private SQLTipoBebida sqlTipoBebida;
+	private SQLLECTOR sqlTipoBebida;
 	
 	/**
 	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
 	 */
-	private SQLBebida sqlBebida;
+	private SQLLOCAL_COMERCIAL sqlBebida;
 	
 	/**
 	 * Atributo para el acceso a la tabla BAR de la base de datos
 	 */
-	private SQLBar sqlBar;
+	private SQLBAÑO sqlBar;
 	
 	/**
 	 * Atributo para el acceso a la tabla BEBIDA de la base de datos
 	 */
-	private SQLBebedor sqlBebedor;
+	private SQLCARNET sqlBebedor;
 	
 	/**
 	 * Atributo para el acceso a la tabla GUSTAN de la base de datos
 	 */
-	private SQLGustan sqlGustan;
+	private SQLCENTRO_COMERCIAL sqlGustan;
 	
 	/**
 	 * Atributo para el acceso a la tabla SIRVEN de la base de datos
 	 */
-	private SQLSirven sqlSirven;
+	private SQLESPACIO sqlSirven;
 	
 	/**
 	 * Atributo para el acceso a la tabla VISITAN de la base de datos
 	 */
-	private SQLVisitan sqlVisitan;
+	private SQLVISITA sqlVisitan;
 	
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
@@ -130,7 +135,7 @@ public class PersistenciaParranderos
 	/**
 	 * Constructor privado con valores por defecto - Patrón SINGLETON
 	 */
-	private PersistenciaParranderos ()
+	private PersistenciaAforo ()
 	{
 		pmf = JDOHelper.getPersistenceManagerFactory("Parranderos");		
 		crearClasesSQL ();
@@ -151,7 +156,7 @@ public class PersistenciaParranderos
 	 * Constructor privado, que recibe los nombres de las tablas en un objeto Json - Patrón SINGLETON
 	 * @param tableConfig - Objeto Json que contiene los nombres de las tablas y de la unidad de persistencia a manejar
 	 */
-	private PersistenciaParranderos (JsonObject tableConfig)
+	private PersistenciaAforo (JsonObject tableConfig)
 	{
 		crearClasesSQL ();
 		tablas = leerNombresTablas (tableConfig);
@@ -164,11 +169,11 @@ public class PersistenciaParranderos
 	/**
 	 * @return Retorna el único objeto PersistenciaParranderos existente - Patrón SINGLETON
 	 */
-	public static PersistenciaParranderos getInstance ()
+	public static PersistenciaAforo getInstance ()
 	{
 		if (instance == null)
 		{
-			instance = new PersistenciaParranderos ();
+			instance = new PersistenciaAforo ();
 		}
 		return instance;
 	}
@@ -178,11 +183,11 @@ public class PersistenciaParranderos
 	 * @param tableConfig - El objeto JSON con los nombres de las tablas
 	 * @return Retorna el único objeto PersistenciaParranderos existente - Patrón SINGLETON
 	 */
-	public static PersistenciaParranderos getInstance (JsonObject tableConfig)
+	public static PersistenciaAforo getInstance (JsonObject tableConfig)
 	{
 		if (instance == null)
 		{
-			instance = new PersistenciaParranderos (tableConfig);
+			instance = new PersistenciaAforo (tableConfig);
 		}
 		return instance;
 	}
@@ -219,13 +224,13 @@ public class PersistenciaParranderos
 	 */
 	private void crearClasesSQL ()
 	{
-		sqlTipoBebida = new SQLTipoBebida(this);
-		sqlBebida = new SQLBebida(this);
-		sqlBar = new SQLBar(this);
-		sqlBebedor = new SQLBebedor(this);
-		sqlGustan = new SQLGustan(this);
-		sqlSirven = new SQLSirven (this);
-		sqlVisitan = new SQLVisitan(this);		
+		sqlTipoBebida = new SQLLECTOR(this);
+		sqlBebida = new SQLLOCAL_COMERCIAL(this);
+		sqlBar = new SQLBAÑO(this);
+		sqlBebedor = new SQLCARNET(this);
+		sqlGustan = new SQLCENTRO_COMERCIAL(this);
+		sqlSirven = new SQLESPACIO (this);
+		sqlVisitan = new SQLVISITA(this);		
 		sqlUtil = new SQLUtil(this);
 	}
 
