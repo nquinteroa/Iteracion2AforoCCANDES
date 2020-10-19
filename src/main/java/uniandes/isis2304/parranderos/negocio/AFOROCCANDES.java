@@ -84,53 +84,36 @@ public class AFOROCCANDES
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepción
 	 */
-	public PARQUEADERO adicionarTipoBebida (String nombre)
+	public PARQUEADERO adicionarPARQUEADERO (String parqueadero)
 	{
-        log.info ("Adicionando Tipo de bebida: " + nombre);
-        PARQUEADERO tipoBebida = pp.adicionarTipoBebida (nombre);		
-        log.info ("Adicionando Tipo de bebida: " + tipoBebida);
-        return tipoBebida;
+        log.info ("Adicionando Parqueadero: " + parqueadero);
+        PARQUEADERO parq = pp.adicionarParqueadero (parqueadero);		
+        log.info ("Adicionando parqueadero: " + parq);
+        return parq;
 	}
 	
-	/**
-	 * Elimina un tipo de bebida por su nombre
-	 * Adiciona entradas al log de la aplicación
-	 * @param nombre - El nombre del tipo de bebida a eliminar
-	 * @return El número de tuplas eliminadas
-	 */
-	public long eliminarTipoBebidaPorNombre (String nombre)
-	{
-		log.info ("Eliminando Tipo de bebida por nombre: " + nombre);
-        long resp = pp.eliminarTipoBebidaPorNombre (nombre);		
-        log.info ("Eliminando Tipo de bebida por nombre: " + resp + " tuplas eliminadas");
-        return resp;
-	}
-	
+
 	/**
 	 * Elimina un tipo de bebida por su identificador
 	 * Adiciona entradas al log de la aplicación
 	 * @param idTipoBebida - El id del tipo de bebida a eliminar
 	 * @return El número de tuplas eliminadas
 	 */
-	public long eliminarTipoBebidaPorId (long idTipoBebida)
+	public long eliminarTipoPARQUEADEROPorId (long idParqueadero)
 	{
-		log.info ("Eliminando Tipo de bebida por id: " + idTipoBebida);
-        long resp = pp.eliminarTipoBebidaPorId (idTipoBebida);		
-        log.info ("Eliminando Tipo de bebida por id: " + resp + " tuplas eliminadas");
+		log.info ("Eliminando Parqueadero por id: " + idParqueadero);
+        long resp = pp.eliminarParqueaderoPorId (idParqueadero);		
+        log.info ("Eliminando Parqueadero por id: " + resp + " tuplas eliminadas");
         return resp;
 	}
 	
-	/**
-	 * Encuentra todos los tipos de bebida en Parranderos
-	 * Adiciona entradas al log de la aplicación
-	 * @return Una lista de objetos TipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
-	 */
-	public List<PARQUEADERO> darTiposBebida ()
+
+	public List<PARQUEADERO> darPARQUEADEROS ()
 	{
-		log.info ("Consultando Tipos de bebida");
-        List<PARQUEADERO> tiposBebida = pp.darTiposBebida ();	
-        log.info ("Consultando Tipos de bebida: " + tiposBebida.size() + " existentes");
-        return tiposBebida;
+		log.info ("Consultando parqueaderos");
+        List<PARQUEADERO> parqueaderos = pp.darParqueaderos ();	
+        log.info ("Consultando parqueaderos: " + parqueaderos.size() + " existentes");
+        return parqueaderos;
 	}
 
 	/**
@@ -138,16 +121,16 @@ public class AFOROCCANDES
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOPARQUEDAERO> darVOTiposBebida ()
+	public List<VOPARQUEDAERO> darVOPARQUEADEROS ()
 	{
-		log.info ("Generando los VO de Tipos de bebida");        
-        List<VOPARQUEDAERO> voTipos = new LinkedList<VOPARQUEDAERO> ();
-        for (PARQUEADERO tb : pp.darTiposBebida ())
+		log.info ("Generando los VO de los parqueaderos");        
+        List<VOPARQUEDAERO> voParqueaderos = new LinkedList<VOPARQUEDAERO> ();
+        for (PARQUEADERO tb : pp.darParqueaderos ())
         {
-        	voTipos.add (tb);
+        	voParqueaderos.add (tb);
         }
-        log.info ("Generando los VO de Tipos de bebida: " + voTipos.size() + " existentes");
-        return voTipos;
+        log.info ("Generando los VO de Parqueaderos: " + voParqueaderos.size() + " existentes");
+        return voParqueaderos;
 	}
 
 	/**
@@ -175,12 +158,12 @@ public class AFOROCCANDES
 	 * @param gradoAlcohol - El grado de alcohol de la bebida (Mayor que 0)
 	 * @return El objeto Bebida adicionado. null si ocurre alguna Excepción
 	 */
-	public CENTRO_COMERCIAL adicionarBebida (String nombre, long idTipoBebida, int gradoAlcohol)
+	public CENTRO_COMERCIAL adicionarCENTRO_COMERCIAL (String nombre, float aforo)
 	{
-		log.info ("Adicionando bebida " + nombre);
-		CENTRO_COMERCIAL bebida = pp.adicionarBebida (nombre, idTipoBebida, gradoAlcohol);
-        log.info ("Adicionando bebida: " + bebida);
-        return bebida;
+		log.info ("Adicionando centro comercial " + nombre);
+		CENTRO_COMERCIAL centro = pp.adicionarCentroComercial (nombre, aforo);
+        log.info ("Adicionando centro comercial: " + centro);
+        return centro;
 	}
 	
 	/**
@@ -189,11 +172,11 @@ public class AFOROCCANDES
 	 * @param nombre - El nombre de la bebida a eliminar
 	 * @return El número de tuplas eliminadas
 	 */
-	public long eliminarBebidaPorNombre (String nombre)
+	public long eliminarCENTRO_COMERCIALPorNombre (String nombre)
 	{
-        log.info ("Eliminando bebida por nombre: " + nombre);
-        long resp = pp.eliminarBebidaPorNombre (nombre);
-        log.info ("Eliminando bebida por nombre: " + resp + " tuplas eliminadas");
+        log.info ("Eliminando centro comercial por nombre: " + nombre);
+        long resp = pp.eliminarCentroComercialPorNombre (nombre);
+        log.info ("Eliminando centro comercial por nombre: " + resp + " tuplas eliminadas");
         return resp;
 	}
 	
@@ -203,11 +186,11 @@ public class AFOROCCANDES
 	 * @param idBebida - El identificador de la bebida a eliminar
 	 * @return El número de tuplas eliminadas (1 o 0)
 	 */
-	public long eliminarBebidaPorId (long idBebida)
+	public long eliminarCENTRO_COMERCIALPorId (long idCentroComercial)
 	{
-        log.info ("Eliminando bebida por id: " + idBebida);
-        long resp = pp.eliminarBebidaPorId (idBebida);
-        log.info ("Eliminando bebida por id: " + resp + " tuplas eliminadas");
+        log.info ("Eliminando centro comercial por id: " + idCentroComercial);
+        long resp = pp.eliminarBebidaPorId (idCentroComercial);
+        log.info ("Eliminando centro comercial por id: " + resp + " tuplas eliminadas");
         return resp;
 	}
 	

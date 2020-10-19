@@ -15,7 +15,7 @@
 
 package uniandes.isis2304.parranderos.negocio;
 
-public class CENTRO_COMERCIAL implements VOCENTRO_COMERCIAL
+public  class CENTRO_COMERCIAL implements VOCENTRO_COMERCIAL
 {
 	/* ****************************************************************
 	 * 			Atributos
